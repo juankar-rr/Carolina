@@ -3,16 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <title>Para el amor de mi vida</title>
-  <!-- Aquí enlazas tu CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #ff007f, #330033);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 60px;
+      font-size: 48px;
+      font-weight: bold;
+      text-transform: uppercase;
+      animation: glowTitle 1.5s infinite alternate, heartbeat 3s infinite;
+    }
+
+    @keyframes glowTitle {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #ff99cc; }
+      to   { text-shadow: 0 0 20px #fff, 0 0 40px #ff66aa; }
+    }
+
+    @keyframes heartbeat {
+      0%   { transform: scale(1); }
+      25%  { transform: scale(1.1); }
+      50%  { transform: scale(1); }
+      75%  { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .lyrics, .countdown {
+      margin-top: 30px;
+      font-size: 22px;
+      animation: glowText 2s infinite alternate;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #ff99cc; }
+      to   { text-shadow: 0 0 15px #fff, 0 0 30px #ff66aa; }
+    }
+
+    /* Corazón bien formado */
+    .heart {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 40px auto;
+      cursor: pointer;
+    }
+
+    .heart-shape {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: #ff3366;
+      transform: rotate(-45deg);
+      margin: 0 auto;
+    }
+
+    .heart-shape::before,
+    .heart-shape::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #ff3366;
+      border-radius: 50%;
+    }
+
+    .heart-shape::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart-shape::after {
+      top: 0;
+      left: 50px;
+    }
+
+    .heart-text {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      width: 100%;
+      animation: glowText 2s infinite alternate;
+      pointer-events: none; /* evita que el texto bloquee el clic */
+    }
+
+    .floating-heart {
+      position: absolute;
+      color: #ffcccc;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-600px); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Para el amor de mi vida</h1>
+  <h1>PARA EL AMOR DE MI VIDA</h1>
+
   <div class="lyrics">Si pudiera elegir un lugar seguro, sería a tu lado. Te amo.</div>
 
   <!-- Corazón clickeable con texto -->
   <a href="https://juankar-rr.github.io/san-valentin/" target="_blank">
     <div class="heart">
+      <div class="heart-shape"></div>
       <span class="heart-text">Click aquí</span>
     </div>
   </a>
@@ -49,6 +156,5 @@
     setInterval(countdown, 1000);
   </script>
 </body>
-
 </html>
 
