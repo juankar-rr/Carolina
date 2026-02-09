@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #ff007f, #330033);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.lyrics {
+  font-size: 20px;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.heart {
+  width: 120px;
+  height: 110px;
+  background-color: red;
+  position: relative;
+  margin: 120px auto;
+  transform: rotate(-45deg);
+  animation: pulse 1s infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 110px;
+  border-radius: 50%;
+  background: red;
+}
+
+.heart:before {
+  top: -60px;
+  left: 0;
+}
+
+.heart:after {
+  left: 60px;
+  top: 0;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1) rotate(-45deg); }
+  50% { transform: scale(1.2) rotate(-45deg); }
+  100% { transform: scale(1) rotate(-45deg); }
+}
+
+/* Texto dentro del corazón */
+.heart-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg); /* corrige la rotación */
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px black; /* para que resalte */
+  z-index: 10; /* asegura que quede encima del corazón */
+}
+
+.floating-heart {
+  position: absolute;
+  color: #ffcccc;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-600px); opacity: 0; }
+}
+
+.countdown {
+  font-size: 18px;
+  margin-top: 20px;
+}

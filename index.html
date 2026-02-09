@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para el amor de mi vida</title>
+  <!-- Aquí enlazas tu CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Para el amor de mi vida</h1>
+  <div class="lyrics">Si pudiera elegir un lugar seguro, sería a tu lado. Te amo.</div>
+
+  <!-- Corazón clickeable con texto -->
+  <a href="https://www.tupagina.com" target="_blank">
+    <div class="heart">
+      <span class="heart-text">Click aquí</span>
+    </div>
+  </a>
+
+  <div class="countdown" id="countdown"></div>
+
+  <script>
+    // Corazones flotantes
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = window.innerHeight + "px";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+    }
+
+    // Cuenta regresiva
+    function countdown() {
+      const startDate = new Date("Feb 14, 2025 00:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = now - startDate;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        "Mi amor por ti comenzó hace... " +
+        days + " días " + hours + " horas " + minutes + " minutos " + seconds + " segundos";
+    }
+    setInterval(countdown, 1000);
+  </script>
+</body>
+</html>
